@@ -28,17 +28,10 @@
 									<label for="full_name" class="">Metros</label>
 									<input type="number" id="metros" name="metros" class="form-control" placeholder="Metros">
 								</div>
-								<div class="factura-info" style="">
-									<label for="full_name" class="">servicio de limpieza</label>
-									<input type="checkbox" id="limpieza" name="metros" class="form-control" placeholder="Metros">
-								</div>
 							</div>
 						</div>
 					</div>
-					<input type="button" name="" id="calcular" class="btn " value="Calcular"
-			style="text-align:center;">
 				</div>
-				
 
 				<div class="twoinput">
 					<div class="form-group">
@@ -47,105 +40,62 @@
 								<div class="" style="text-align: center;">
 									<h2>Factura</h2>
 								</div>
-
 								<div class="factura-info" style="">
 									<div class="div">
 										<p>Servicio desmalezado</p>
 									</div>
 									<div class="div">
-										<p id="desma">precio</p>
-									</div>
-								</div>
-
-								<div class="factura-info" style="">
-										<div class="div">
-											<p>Servicio de limpieza</p>
-										</div>
-									<div class="div">
-										<p id="limp">precio</p>
-									</div>
-								</div>
-
-								<div class="factura-info" style="">
-										<div class="div">
-											<p>Total</p>
-										</div>
-									<div class="div">
-										<p id="total">total</p>
+										<p id="desma">rgrg</p>
 									</div>
 								</div>
 	
 							</div>
 						</div>
 					</div>
-					
 	
 				</div>
 			</div>
 	
 		</div>
-		
+		<input type="button" name="add" id="calcular" class="btn btn-sm btn-primary btnsubmit" value="textss"
+			style="text-align:center;">
 	</form>
 
 
 	<script>
 		let calcular = document.getElementById('calcular')
-		let limpieza = document.getElementById('limpieza')
-		let resultados =
-
+		
 
 		calcular.addEventListener('click', calcu)
-		limpieza.addEventListener('click', suma)
 
 		function calcu() {
 			let metros = document.getElementById('metros').value
 		    let precio = 0.1
-			var res=0
 				
 				if (metros > 2000) {
 					precio = 0.05
 					res = metros * precio
 					console.log("el precio por 0.05 " + res  );
 					document.getElementById('desma').innerHTML = res + " $"
+				}
+				else if (metros < 300) {
+					precio = 0.2
+				res = metros * precio
+					console.log("el precio por 0.2 " + res  );
+					document.getElementById('desma').innerHTML = res + " $"
+				}
 
-					}
-					else if (metros < 300) {
-						precio = 0.2
+				else {
 					res = metros * precio
-						console.log("el precio por 0.2 " + res  );
-						document.getElementById('desma').innerHTML = res + " $"
-					}
-
-					else {
-						res = metros * precio
-						console.log("el precio por 0.1 " + res  );
-						
-						document.getElementById('desma').innerHTML = res + " $"
-					}
-				
-			resultados=res
-				/*
-
-			limp=5
-			suma= res+limp
-
-			document.getElementById('total').innerHTML = suma + " $ total"
+					console.log("el precio por 0.1 " + res  );
+					
+					document.getElementById('desma').innerHTML = res + " $"
+					
+				}
 
 			
-			*/
 			
 		}
-		
-		function suma() {
-			//console.log(resultados + "ddd")
-			limp=5
-			suma= resultados+limp
-
-			document.getElementById('total').innerHTML = suma + " $ total"
-				}
-		
-				//sumafactura()
-				
 
 
 	</script>
