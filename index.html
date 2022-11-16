@@ -26,12 +26,31 @@
 								</div>
 								<div class="factura-info" style="">
 									<label for="full_name" class="">Metros</label>
-									<input type="number" id="metros" name="metros" class="form-control" placeholder="Metros">
+									<input type="number" id="metros" name="metros" class="form-control"
+										placeholder="Metros" value="50" min="35">
+								</div>
+								<div class="factura-info" style="">
+									<label for="full_name" class="">Servicio de limpieza</label>
+									<input type="checkbox" id="limpieza" name="metros" class="form-control"
+										placeholder="Metros">
+								</div>
+								<div class="factura-info" style="">
+									<label for="framework">Seleccione el tipo de servicio</label>
+									<select id="framework">
+										<option value="" disabled>Seleccione</option>
+										<option value="1">Solo Desmalezado</option>
+										<option value="2">Desmalezado con limpieza</option>
+									</select>
+									<button id="btn">Get the Selected Value</button>
 								</div>
 							</div>
+
 						</div>
 					</div>
+					<input type="button" name="" id="calcular" class="btn " value="Calcular" style="text-align:center;">
+
 				</div>
+
 
 				<div class="twoinput">
 					<div class="form-group">
@@ -40,66 +59,141 @@
 								<div class="" style="text-align: center;">
 									<h2>Factura</h2>
 								</div>
+
 								<div class="factura-info" style="">
 									<div class="div">
 										<p>Servicio desmalezado</p>
 									</div>
 									<div class="div">
-										<p id="desma">rgrg</p>
+										<p id="desma">precio</p>
 									</div>
 								</div>
-	
+
+								<div class="factura-info" style="">
+									<div class="div">
+										<p>Servicio de limpieza</p>
+									</div>
+									<div class="div">
+										<p id="limp">precio</p>
+									</div>
+								</div>
+
+								<div class="factura-info" style="">
+									<div class="div">
+										<p>Total</p>
+									</div>
+									<div class="div">
+										<p id="total">total</p>
+									</div>
+								</div>
+
 							</div>
 						</div>
 					</div>
-	
+
+
 				</div>
 			</div>
-	
+
 		</div>
-		<input type="button" name="add" id="calcular" class="btn btn-sm btn-primary btnsubmit" value="textss"
-			style="text-align:center;">
+
 	</form>
 
 
 	<script>
 		let calcular = document.getElementById('calcular')
+		let limpieza = document.getElementById('limpieza')
+		let serviciodesma = document.getElementById('desma')
+		let resultados = null
+		let btn = document.querySelector('#btn');
+		let sb = document.getElementById('framework')
+		let total = document.getElementById('total')
+		//var metros = document.getElementById('metros').value
+
 		
+		btn.addEventListener("click", verifica);
 
-		calcular.addEventListener('click', calcu)
+		function verifica() {
+			if (sb.value == 1) {
+				calculodesma();
+				console.log("1")
+			}
+			else {
+				//calculodesmalimp();
+				console.log("2")
+			}
+		};
 
-		function calcu() {
-			let metros = document.getElementById('metros').value
-		    let precio = 0.1
-				
-				if (metros > 2000) {
-					precio = 0.05
-					res = metros * precio
-					console.log("el precio por 0.05 " + res  );
-					document.getElementById('desma').innerHTML = res + " $"
-				}
-				else if (metros < 300) {
-					precio = 0.2
-				res = metros * precio
-					console.log("el precio por 0.2 " + res  );
-					document.getElementById('desma').innerHTML = res + " $"
-				}
-
-				else {
-					res = metros * precio
-					console.log("el precio por 0.1 " + res  );
-					
-					document.getElementById('desma').innerHTML = res + " $"
-					
-				}
-
+	
+		function calculodesma() {
 			
+				let precio = 0.1
+				var res = 0
+				let metros=document.getElementById('metros').value
+
+					if (metros > 2000) {
+						precio = 0.05
+						
+						res = metros * precio 
+						//console.log("el precio por 0.05 " + res);
+						serviciodesma.innerHTML = res + " $caro"
+						//console.log(sb+"dd");
+
+					}
+					else if (metros < 300) {
+						precio = 0.2
+						res = metros * precio 
+						console.log("el precio por 0.2 " + res);
+						document.getElementById('desma').innerHTML = res + " barato$"
+						//
+					}
+
+					else {
+						res = metros * precio
+						console.log("el precio por 0.1 " + res);
+						document.getElementById('desma').innerHTML = res + " $ normal"
+					}
+				resultados = res
+				event.preventDefault();
+				
+				
+			}
+		function calculodesmalimp() {
+			let precio = 0.1
+					
+			
+			if (metros > 2000) {
+						precio = 0.05
+						servi = 15
+						res = metros * precio + servi
+						//console.log("el precio por 0.05 " + res);
+						document.getElementById('limp').innerHTML = servi + " $d"
+						total.innerHTML = res + " $dolares"
+						//console.log(sb+"dd");
+
+					}
+					else if (metros < 300) {
+						precio = 0.2
+						servi = 5
+						res = metros * precio + servi
+						console.log("el precio por 0.2 " + res);
+						document.getElementById('limp').innerHTML = servi + " $"
+						total.innerHTML = res + " $dolares"
+					}
+
+					else {
+						res = metros * precio
+						console.log("el precio por 0.1 " + res);
+						document.getElementById('limp').innerHTML = servi + " $"
+						total.innerHTML = res + " $dolares"
+					}
+			console.log(resultados + "ddd")
+			event.preventDefault();
 			
 		}
 
-
 	</script>
-
+	<!--
 	<div class="container-soc">
 		<div class="social">
 			<ul>
@@ -112,9 +206,11 @@
 		</div>
 
 	</div>
+	-->
+
 
 	<div class="grid left">
-		
+
 	</div>
 
 	<div class="grid">
@@ -125,21 +221,6 @@
 	</div>
 
 
-
-	<?php
-    /*
-	$metros = ($_POST["metros"]);
-	$precio = 0.2;
-	if ($metros > 500) {
-	$precio = 0.1;
-	$res = $precio * $metros;
-	echo "el resultado " . $res;
-	} else {
-	$res = $precio * $metros;
-	echo "el resultado " . $res;
-	//echo"0.2";
-	}*/
-    ?>
 </body>
 
 </html>
