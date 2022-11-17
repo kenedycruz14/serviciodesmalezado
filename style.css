@@ -7,6 +7,12 @@ body{
     background-image: linear-gradient(2deg, #76d041 0%, #50c899 46%, #70d7ff 100%);
 
 }
+html, body{
+  height:100%;
+  margin:0;
+  display: flex;
+  flex-direction: column;
+}
 
 label {
 	color: red;
@@ -20,6 +26,8 @@ label {
 /*area de factura */
 
 .factura{
+	display: grid;
+    justify-content: center;
 	background-color:#ffffff;
 	border-radius: 20px;
 }
@@ -34,7 +42,8 @@ label {
 }
 .factura-info{
 	display: grid;
-    grid-template-columns: 1fr 1fr
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 8px;
 }
 
 
@@ -74,3 +83,9 @@ label {
 		background: #000; /* Cambiamos el fondo cuando el usuario pase el mouse */
 		padding: 10px 30px; /* Hacemos mas grande el espacio cuando el usuario pase el mouse */
 	}
+
+	@media (max-width: 800px) {
+    .calfac {
+        grid-template-columns: 50%
+  }
+}
