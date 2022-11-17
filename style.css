@@ -1,51 +1,67 @@
-*{
+* {
 	margin: 0;
 	padding: 0;
 }
-body{
+
+
+html, body {
+	height: 100%;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
 	background-color: #76d041;
-    background-image: linear-gradient(2deg, #76d041 0%, #50c899 46%, #70d7ff 100%);
+	background-image: linear-gradient(2deg, #76d041 0%, #50c899 46%, #70d7ff 100%);
 
 }
-html, body{
-  height:100%;
-  margin:0;
-  display: flex;
-  flex-direction: column;
-}
 
-label {
-	color: red;
-}
-.grid{
-	display: grid;
-	justify-content: center;
+label, p {
 	
 }
 
-/*area de factura */
-
-.factura{
-	display: grid;
-    justify-content: center;
-	background-color:#ffffff;
-	border-radius: 20px;
+input {
+    min-width: 164px;
 }
 
-.calfac{
+h2{
+	    margin-bottom: 20px;
+}
+
+.grid {
+	display: grid;
+	justify-content: center;
+}
+
+/*area de factura */
+.factura {
+	display: grid;
+	justify-content: center;
+	background-color: #ffffff;
+	border-radius: 20px;
+	padding: 10px;
+}
+
+.calfac {
 	display: grid;
 	grid-template-columns: 25% 25%;
-	color: #d95232;
-	/*text-align: center;*/
 	/*align-items: center;*/
 	grid-gap: 20px;
 }
-.factura-info{
+
+.factura-info {
 	display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 8px;
+	grid-template-columns: 1fr 1fr;
+	grid-gap: 8px;
+	margin-bottom: 8px;
 }
 
+#btn {
+	margin-left: auto;
+	margin-right: auto;
+	background-color: blanchedalmond;
+	border-radius: 20px;
+	outline: none;
+	padding: 9px;
+}
 
 .social {
 	position: fixed; /* Hacemos que la posición en pantalla sea fija para que siempre se muestre en pantalla*/
@@ -54,38 +70,59 @@ label {
 	z-index: 2000; /* Utilizamos la propiedad z-index para que no se superponga algún otro elemento como sliders, galerías, etc */
 }
 
-	.social ul {
-		list-style: none;
+.social ul {
+	list-style: none;
+}
+
+.social ul li a {
+	width: 30px;
+	display: inline-block;
+	color: #fff;
+	background: #000;
+	padding: 10px 15px;
+	text-decoration: none;
+	-webkit-transition: all 500ms ease;
+	-o-transition: all 500ms ease;
+	transition: all 500ms ease; /* Establecemos una transición a todas las propiedades */
+}
+
+.social ul li a {
+}
+
+.social ul li .icon-facebook {
+	background: #00bbd2;
+	background-image: url("w.png");
+	background-size: cover;
+}
+
+/* Establecemos los colores de cada red social, aprovechando su class */
+.social ul li .icon-twitter {
+	background: #00abf0;
+}
+
+
+.social ul li a:hover {
+	background: #00bbd2; /* Cambiamos el fondo cuando el usuario pase el mouse */
+	padding: 10px 30px; /* Hacemos mas grande el espacio cuando el usuario pase el mouse */
+}
+
+@media (max-width:1080px) {
+	.calfac {
+		grid-template-columns: 74%;
 	}
 
-	.social ul li a {
-		width: 201px;
-		display: inline-block;
-		color:#fff;
-		background: #000;
-		padding: 10px 15px;
-		text-decoration: none;
-		-webkit-transition:all 500ms ease;
-		-o-transition:all 500ms ease;
-		transition:all 500ms ease; /* Establecemos una transición a todas las propiedades */
+	
+
+}
+
+
+@media (max-width:650px) {
+	label , p {
+		color: black;
+		font-size: 12px;
 	}
 
-	.social ul li a {
-		
-	}
-	.social ul li .icon-facebook {background:#3b5998;} /* Establecemos los colores de cada red social, aprovechando su class */
-	.social ul li .icon-twitter {background: #00abf0;}
-	.social ul li .icon-googleplus {background: #d95232;}
-	.social ul li .icon-pinterest {background: #ae181f;}
-	.social ul li .icon-mail {background: #666666;}
 
-	.social ul li a:hover {
-		background: #000; /* Cambiamos el fondo cuando el usuario pase el mouse */
-		padding: 10px 30px; /* Hacemos mas grande el espacio cuando el usuario pase el mouse */
-	}
+	
 
-	@media (max-width: 800px) {
-    .calfac {
-        grid-template-columns: 50%
-  }
 }
