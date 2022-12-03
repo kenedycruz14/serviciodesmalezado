@@ -156,6 +156,7 @@
 				resultados = res
 				document.getElementById('total').innerHTML = resultados
 				limpieza.innerHTML = 0
+				tot=resultados
 				//btncontrato.setAttribute("href", "google.com");
 
 				event.preventDefault();
@@ -171,7 +172,7 @@
 							if (metros.value > 1500) {
 								servi = 15
 								limpieza.innerHTML = servi + " $"
-															total = resultados + servi
+								total = resultados + servi
 							}
 							else if (metros < 300) {
 								
@@ -184,6 +185,7 @@
 								limpieza.innerHTML = servi + " $"
 								total = servi + resultados
 							}
+
 							tot=total
 					
 						event.preventDefault();
@@ -194,7 +196,7 @@
 			btncontrato.addEventListener("click", urls);
 			function urls() {
 				//console.log("dd");
-				btncontrato.setAttribute("href", "https://api.whatsapp.com/send?phone=584127760142&text=hola el costo fue" + encodeURIComponent(tot));
+				btncontrato.setAttribute("href", "https://api.whatsapp.com/send?phone=584127760142&text=hola  solicito el servicio de limpieza el costo fue " + encodeURIComponent(tot));
 					console.log(tot);
 
 			  }
