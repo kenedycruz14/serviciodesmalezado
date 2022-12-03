@@ -36,11 +36,8 @@
 									</div>
 									<button id="btn">Calcular Precios</button>
 								</div>
-
 							</div>
-
 						</div>
-
 						
 					</div>
 					<div class="twoinput">
@@ -74,6 +71,8 @@
 											<p id="total">0</p>
 										</div>
 									</div>
+										<button class="btncontratar"> <a id="btncontrato" href="#" target="#" class="icon-twitter">Contratar</a></button>
+
 								</div>
 							</div>
 						</div>
@@ -81,20 +80,51 @@
 				</div>
 			</div>
 		</form>
+		
+		
+		<div class="container-soc">
+			<div class="social">
+				<ul>
+					<!--<li><a href="https://api.whatsapp.com/send?phone=584127760142&text=hola" target="_blank" class="icon-facebook"></a></li>-->
+					
+					<li><a href="http://www.twitter.com/falconmasters" target="_blank" class="icon-twitter"></a></li>
+					
+				</ul>
+			</div>
+		</div>
+		
+		<div class="grid left">
+			<a href="google.com" class="btn-wsp" target="_blank">
+				<i class="icon">
+				
+				</i>
+			</a>
+		</div>
+		<!--<div class="grid">
+				<iframe
+				src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d3374.335972609089!2d-67.62663103574538!3d10.270987127054324!3m2!1i1024!2i768!4f13.1!5e1!3m2!1ses!2sve!4v1668527232394!5m2!1ses!2sve"
+				width="400" height="300" style="border:0;" allowfullscreen="false" loading="lazy"
+				referrerpolicy="no-referrer-when-downgrade"></iframe>
+		</div>-->
+
+
+
 		<script>
 			let calcular = document.getElementById('calcular')
 			let limpieza = document.getElementById('limp')
 			let serviciodesma = document.getElementById('desma')
 			var resultados = null
 			let btn = document.querySelector('#btn');
+			let btncontrato = document.getElementById('btncontrato');
 			let sb = document.getElementById('framework')
 			let total = document.getElementById('total')
 			let precio = 0.1
 			let res = 0
+			let tot = 0
 			//let metros=document.getElementById('metros').value
-			
-			btn.addEventListener("click", verifica);
 
+
+			btn.addEventListener("click", verifica);
 			function verifica() {
 				if (sb.value == 1) {
 					calculodesma();
@@ -107,7 +137,6 @@
 			function calculodesma() {
 				
 				let metros=document.getElementById('metros').value
-
 						if (metros > 1500) {
 							precio = 0.05
 							res = metros * precio
@@ -124,23 +153,25 @@
 							res = metros * precio
 							serviciodesma.innerHTML = res + " $ "
 						}
-
 				resultados = res
 				document.getElementById('total').innerHTML = resultados
 				limpieza.innerHTML = 0
+				//btncontrato.setAttribute("href", "google.com");
+
 				event.preventDefault();
+
 		
 						}
 				
 			function calculodesmalimp() {
 				calculodesma();
-				  let metros=document.getElementById('metros').value
-				 
+				let metros=document.getElementById('metros').value
+				
 			
 							if (metros.value > 1500) {
 								servi = 15
 								limpieza.innerHTML = servi + " $"
-								total = resultados + servi							
+															total = resultados + servi
 							}
 							else if (metros < 300) {
 								
@@ -153,38 +184,23 @@
 								limpieza.innerHTML = servi + " $"
 								total = servi + resultados
 							}
+							tot=total
 					
 						event.preventDefault();
 						document.getElementById('total').innerHTML = total + " $ normal"
 						
 				
 			}
-			
+			btncontrato.addEventListener("click", urls);
+			function urls() {
+				//console.log("dd");
+				btncontrato.setAttribute("href", "https://api.whatsapp.com/send?phone=584127760142&text=hola el costo fue" + encodeURIComponent(tot));
+					console.log(tot);
+
+			  }
+
 		</script>
 		
-		<div class="container-soc">
-					<div class="social">
-								<ul>
-											<li><a href="https://api.whatsapp.com/send?phone=584127760142" target="_blank" class="icon-facebook"></a></li>
-											<li><a href="http://www.twitter.com/falconmasters" target="_blank" class="icon-twitter"></a></li>
-											
-								</ul>
-					</div>
-		</div>
-		
-		<div class="grid left">
-			<a href="google.com" class="btn-wsp" target="_blank">
-				<i class="icon">
-					
-				</i>
 
-			</a>
-		</div>
-		<!--<div class="grid">
-			<iframe
-			src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d3374.335972609089!2d-67.62663103574538!3d10.270987127054324!3m2!1i1024!2i768!4f13.1!5e1!3m2!1ses!2sve!4v1668527232394!5m2!1ses!2sve"
-			width="400" height="300" style="border:0;" allowfullscreen="false" loading="lazy"
-			referrerpolicy="no-referrer-when-downgrade"></iframe>
-		</div>-->
 	</body>
 </html>
